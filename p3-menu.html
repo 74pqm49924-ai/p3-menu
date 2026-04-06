@@ -5,58 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Le P3 by Marina</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       min-height: 100vh;
       background: #0a1828;
       font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    /* ── PAGE ACCUEIL ── */
+    #home {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 32px 24px;
-      overflow: hidden;
-      position: relative;
+      background: linear-gradient(180deg, #0a1828 0%, #0e2d6b 50%, #0a1828 100%);
     }
 
-    /* Fond photo avec overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(180deg,
-          rgba(10,24,40,0.82) 0%,
-          rgba(15,50,110,0.55) 45%,
-          rgba(10,24,40,0.92) 100%);
-      z-index: 0;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      width: 100%;
-      max-width: 420px;
-    }
-
-    /* Logo / titre */
     .logo-area {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 44px;
     }
 
     .club-name {
       font-size: 2rem;
       font-weight: 800;
-      color: #ffffff;
+      color: #fff;
       letter-spacing: 0.04em;
-      line-height: 1.1;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .club-sub {
@@ -76,20 +58,18 @@
       border-radius: 2px;
     }
 
-    /* Cards boutons */
     .card {
       width: 100%;
+      max-width: 420px;
       border-radius: 20px;
-      padding: 28px 28px;
+      padding: 26px 24px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
       cursor: pointer;
       text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      margin-bottom: 16px;
-      position: relative;
-      overflow: hidden;
+      margin-bottom: 14px;
+      transition: transform 0.15s ease;
     }
 
     .card:active { transform: scale(0.97); }
@@ -107,82 +87,211 @@
     }
 
     .card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 1.6rem;
-    }
-
-    .card-menu .card-icon {
-      background: rgba(100,160,255,0.15);
-    }
-
-    .card-review .card-icon {
-      background: rgba(80,200,130,0.15);
+      font-size: 1.5rem;
+      background: rgba(255,255,255,0.1);
     }
 
     .card-text { flex: 1; }
 
     .card-title {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: #ffffff;
-      letter-spacing: 0.01em;
-      line-height: 1.2;
+      color: #fff;
     }
 
     .card-desc {
-      font-size: 0.78rem;
-      font-weight: 400;
-      margin-top: 4px;
+      font-size: 0.76rem;
+      margin-top: 3px;
       line-height: 1.4;
     }
 
     .card-menu .card-desc  { color: #7ab3e8; }
     .card-review .card-desc { color: #6bcf97; }
 
-    .card-arrow {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.35);
-      flex-shrink: 0;
-    }
+    .card-arrow { color: rgba(255,255,255,0.3); font-size: 1.2rem; }
 
-    /* Footer */
-    .footer {
+    .footer-home {
       margin-top: 36px;
       text-align: center;
-      color: rgba(255,255,255,0.25);
-      font-size: 0.68rem;
+      color: rgba(255,255,255,0.22);
+      font-size: 0.67rem;
       letter-spacing: 0.05em;
     }
 
-    /* Import Poppins */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+    /* ── PAGE MENU ── */
+    #menu-page {
+      display: none;
+      min-height: 100vh;
+      flex-direction: column;
+      background: #0a1828;
+    }
+
+    #menu-page.active {
+      display: flex;
+    }
+
+    .menu-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #0e2d6b;
+      border-bottom: 1px solid rgba(80,150,220,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .btn-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: none;
+      color: #7ab3e8;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+
+    .topbar-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .btn-avis {
+      background: linear-gradient(135deg, #1e5c3a, #0e3020);
+      border: 1px solid rgba(80,200,130,0.3);
+      border-radius: 20px;
+      color: #6bcf97;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .menu-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 20px 40px;
+      max-width: 480px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .menu-header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-header p {
+      color: #7ab3e8;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .menu-section {
+      margin-bottom: 28px;
+    }
+
+    .section-pill {
+      background: rgba(30,80,160,0.85);
+      border: 1.5px solid rgba(80,150,220,0.3);
+      border-radius: 50px;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 14px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .item-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    .item-name.gold { color: #f5be46; font-weight: 700; }
+
+    .item-price {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #7ab3e8;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+
+    .item-price.gold { color: #f5be46; }
+
+    .avis-banner {
+      margin-top: 32px;
+      background: linear-gradient(135deg, #1e5c3a, #0e3020);
+      border: 1px solid rgba(80,200,130,0.3);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+    }
+
+    .avis-banner .stars { font-size: 1.4rem; margin-bottom: 6px; }
+    .avis-banner .avis-title { font-weight: 700; font-size: 0.95rem; color: white; }
+    .avis-banner .avis-sub { font-size: 0.75rem; color: #6bcf97; margin-top: 3px; }
   </style>
 </head>
 <body>
-  <div class="content">
 
+  <!-- PAGE ACCUEIL -->
+  <div id="home">
     <div class="logo-area">
       <div class="club-name">Le P3 by Marina</div>
       <div class="club-sub">Club de Padel · Peypin</div>
       <div class="divider"></div>
     </div>
 
-    <a class="card card-menu" href="https://74pqm49924-ai.github.io/p3-menu/menu_p3_final.pdf" target="_blank">
+    <button class="card card-menu" onclick="showMenu()" style="border:none; text-align:left; max-width:420px; width:100%;">
       <div class="card-icon">🍽</div>
       <div class="card-text">
         <div class="card-title">Consulter le menu</div>
         <div class="card-desc">Boissons, snacks et formules</div>
       </div>
       <div class="card-arrow">›</div>
-    </a>
+    </button>
 
-    <a class="card card-review" href="https://g.page/r/CTxYBY4dEPdkEAE/review" target="_blank">
+    <a class="card card-review" href="https://g.page/r/CTxYBY4dEPdkEAE/review" target="_blank" style="max-width:420px;">
       <div class="card-icon">⭐</div>
       <div class="card-text">
         <div class="card-title">Laisser un avis Google</div>
@@ -191,8 +300,116 @@
       <div class="card-arrow">›</div>
     </a>
 
-    <div class="footer">p3bymarina@gmail.com · 06 19 97 47 86</div>
-
+    <div class="footer-home">p3bymarina@gmail.com · 06 19 97 47 86</div>
   </div>
+
+  <!-- PAGE MENU -->
+  <div id="menu-page">
+    <div class="menu-topbar">
+      <button class="btn-back" onclick="showHome()">‹ Retour</button>
+      <span class="topbar-title">Le Menu</span>
+      <a class="btn-avis" href="https://g.page/r/CTxYBY4dEPdkEAE/review" target="_blank">⭐ Avis</a>
+    </div>
+
+    <div class="menu-content">
+      <div class="menu-header">
+        <h1>Le P3 by Marina</h1>
+        <p>Club de Padel · Peypin</p>
+      </div>
+
+      <!-- FORMULES -->
+      <div class="menu-section">
+        <div class="section-pill">Formules</div>
+        <div class="menu-item">
+          <span class="item-name gold">Panini + Frites</span>
+          <span class="item-price gold">9 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name gold">Nuggets + Frites</span>
+          <span class="item-price gold">8 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name gold">Tenders + Frites</span>
+          <span class="item-price gold">10 €</span>
+        </div>
+      </div>
+
+      <!-- À LA CARTE -->
+      <div class="menu-section">
+        <div class="section-pill">À la carte</div>
+        <div class="menu-item">
+          <span class="item-name">Panini</span>
+          <span class="item-price">6 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Frites</span>
+          <span class="item-price">4 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Pâtes</span>
+          <span class="item-price">8 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Tenders</span>
+          <span class="item-price">6 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Nuggets</span>
+          <span class="item-price">5 €</span>
+        </div>
+      </div>
+
+      <!-- BOISSONS -->
+      <div class="menu-section">
+        <div class="section-pill">Boissons</div>
+        <div class="menu-item">
+          <span class="item-name">Canettes</span>
+          <span class="item-price">2 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Bières 33cl</span>
+          <span class="item-price">4 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Bières 25cl</span>
+          <span class="item-price">3 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Pago</span>
+          <span class="item-price">2,50 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Énergisantes</span>
+          <span class="item-price">3 €</span>
+        </div>
+        <div class="menu-item">
+          <span class="item-name">Café</span>
+          <span class="item-price">1,50 €</span>
+        </div>
+      </div>
+
+      <!-- BANNIÈRE AVIS EN BAS DU MENU -->
+      <a class="avis-banner" href="https://g.page/r/CTxYBY4dEPdkEAE/review" target="_blank">
+        <div class="stars">★★★★★</div>
+        <div class="avis-title">Laisser un avis Google</div>
+        <div class="avis-sub">Votre retour nous aide énormément 🙏</div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function showMenu() {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('menu-page').classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    function showHome() {
+      document.getElementById('menu-page').classList.remove('active');
+      document.getElementById('home').style.display = 'flex';
+      window.scrollTo(0, 0);
+    }
+  </script>
+
 </body>
 </html>
