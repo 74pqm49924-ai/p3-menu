@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le P3 by Marina</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      background: #0a1828;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Fond photo avec overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg,
+          rgba(10,24,40,0.82) 0%,
+          rgba(15,50,110,0.55) 45%,
+          rgba(10,24,40,0.92) 100%);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    /* Logo / titre */
+    .logo-area {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .club-name {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .club-sub {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: #7ab3e8;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #4a90d9;
+      margin: 14px auto 0;
+      border-radius: 2px;
+    }
+
+    /* Cards boutons */
+    .card {
+      width: 100%;
+      border-radius: 20px;
+      padding: 28px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      margin-bottom: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:active { transform: scale(0.97); }
+
+    .card-menu {
+      background: linear-gradient(135deg, #1a4a9e 0%, #0e2d6b 100%);
+      border: 1.5px solid rgba(100,160,240,0.35);
+      box-shadow: 0 8px 32px rgba(10,30,80,0.5);
+    }
+
+    .card-review {
+      background: linear-gradient(135deg, #1e5c3a 0%, #0e3020 100%);
+      border: 1.5px solid rgba(80,200,130,0.30);
+      box-shadow: 0 8px 32px rgba(10,40,20,0.5);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.6rem;
+    }
+
+    .card-menu .card-icon {
+      background: rgba(100,160,255,0.15);
+    }
+
+    .card-review .card-icon {
+      background: rgba(80,200,130,0.15);
+    }
+
+    .card-text { flex: 1; }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 0.78rem;
+      font-weight: 400;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .card-menu .card-desc  { color: #7ab3e8; }
+    .card-review .card-desc { color: #6bcf97; }
+
+    .card-arrow {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.35);
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 36px;
+      text-align: center;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Import Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+  </style>
+</head>
+<body>
+  <div class="content">
+
+    <div class="logo-area">
+      <div class="club-name">Le P3 by Marina</div>
+      <div class="club-sub">Club de Padel · Peypin</div>
+      <div class="divider"></div>
+    </div>
+
+    <a class="card card-menu" href="LIEN_MENU_PDF_ICI" target="_blank">
+      <div class="card-icon">🍽</div>
+      <div class="card-text">
+        <div class="card-title">Consulter le menu</div>
+        <div class="card-desc">Boissons, snacks et formules</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a class="card card-review" href="https://g.page/r/CTxYBY4dEPdkEAE/review" target="_blank">
+      <div class="card-icon">⭐</div>
+      <div class="card-text">
+        <div class="card-title">Laisser un avis Google</div>
+        <div class="card-desc">Votre retour compte énormément</div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <div class="footer">p3bymarina@gmail.com · 06 19 97 47 86</div>
+
+  </div>
+</body>
+</html>
